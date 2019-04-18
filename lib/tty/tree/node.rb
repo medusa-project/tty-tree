@@ -34,7 +34,7 @@ module TTY
 
       def initialize(path, parent, prefix, level)
         @path   = Pathname.new(path)
-        @name   = @path.basename
+        @name   = path
         @parent = Pathname.new(parent)
         @prefix = prefix
         @level  = level
