@@ -9,7 +9,8 @@ module TTY
         unicode: {
           branch: '├──',
           leaf: '└──',
-          pipe: '│'
+          pipe: '│',
+          file_pipe: '|  '
         },
         ansi: {
           branch: '|--',
@@ -43,7 +44,7 @@ module TTY
       end
 
       def node_prefix(node)
-        return :pipe if node.is_file
+        return :file_pipe if node.is_file
         node.leaf? ? :leaf : :branch
       end
       
