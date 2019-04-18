@@ -36,11 +36,17 @@ module TTY
       def render_node(acc, node, pipe_mark, space_mark)
         acc << node.prefix.gsub(/:pipe/, pipe_mark).gsub(/:space/, space_mark)
         unless node.root?
-          acc << MARKERS[:unicode][node.leaf? ? :leaf : :branch]
+          acc << MARKERS[:unicode][node_prefix(node)]
           acc << ' '
         end
         acc << node.name.to_s + "\n"
       end
+
+      def node_prefix(node)
+        return :pipe if node.is_file
+        node.leaf? ? :leaf : :branch
+      end
+      
     end # DirRenderer
   end # Tree
 end # TTY

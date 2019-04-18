@@ -29,6 +29,10 @@ module TTY
       # The current path
       attr_reader :path
 
+      #Whether this node is a "file", i.e. comes from
+      #an array and is not a hash
+      attr_accessor :is_file
+      
       def_delegators :@path, :directory?, :executable?, :file?,
                      :symlink?, :socket?, :pipe?
 
