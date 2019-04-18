@@ -44,7 +44,7 @@ module TTY
       end
 
       def node_prefix(node)
-        return :file_pipe if node.is_file
+        #return :file_pipe if node.is_file
         node.leaf? ? :leaf : :branch
       end
       
